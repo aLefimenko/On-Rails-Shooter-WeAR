@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     int off, on;
     int state;
     Boolean isClick;
-    float[] coordinats = new float[4] { 1f, 2f, 2f, 1f };
+    public float[]  coordinats = new float[4] { 1f, 2f, 2f, 1f };
    // private AndroidJavaClass ajc;// = new AndroidJavaClass("com.raccoon.cvd.rclip_librarydemo");
     private AndroidJavaObject ajo=null;
     private AndroidJavaObject _activeContext;
@@ -32,10 +32,11 @@ public class PlayerControl : MonoBehaviour
         isClick = false;
         if(SystemInfo.deviceType==DeviceType.Handheld)
         {
-//            _activeClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-//            _activeContext = _activeClass.GetStatic<AndroidJavaObject>("currentActivity");
+            _activeClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+            _activeContext = _activeClass.GetStatic<AndroidJavaObject>("currentActivity");
             _pluginClass = new AndroidJavaObject("rclip.lib.RClip");
-            state= _pluginClass.Call<int>("AutoConnect");
+            state = _pluginClass.Call<int>("AutoConnect");
+            _pluginClass.Call("ResetQuat");
 //            Debug.Log(_activeClass.ToString() + " 1 " + _activeContext.ToString() + " 2 " + _pluginClass.ToString());
             if(_pluginClass==null)
             {
@@ -62,6 +63,17 @@ public class PlayerControl : MonoBehaviour
         {
             Application.Quit();
         }
+        if (_pluginClass != null)
+        {
+
+            _pluginClass.Call("GetQuat", javaArrayFromCS(coordinats));
+            Debug.Log(_pluginClass.Get<float>("w").ToString() + "  " + _pluginClass.Get<float>("x").ToString() + "  " + _pluginClass.Get<float>("y").ToString() + "  " + _pluginClass.Get<float>("z").ToString());
+            Vector3 mouseMovement = (1000 * new Vector3(coordinats[1], coordinats[2], coordinats[3]) - (new Vector3(Screen.width, Screen.height, 0) / 2.0f)) * 1;
+            //Debug.Log(coordinats[0].ToString() + " " + coordinats[1].ToString() + " " + coordinats[2].ToString() + " " + coordinats[3].ToString());
+            transform.Rotate(new Vector3(-mouseMovement.y, mouseMovement.x, -mouseMovement.x) * 0.005f);
+            transform.Translate(new Vector3(mouseMovement.x, mouseMovement.y, 0) * 0.005f);
+        }
+        transform.Translate(Vector3.forward * Time.deltaTime * currrentSpeed);
         /*if(Input.GetKey(KeyCode.Space))
         {
             currrentSpeed =2500;
@@ -79,20 +91,15 @@ public class PlayerControl : MonoBehaviour
             currrentSpeed = 500;
         }*/
     }
-
-    void LateUpdate()
+    private AndroidJavaObject javaArrayFromCS(float[] values)
     {
-        if (_pluginClass != null)
+        AndroidJavaClass arrayClass = new AndroidJavaClass("java.lang.reflect.Array");
+        AndroidJavaObject arrayObject = arrayClass.CallStatic<AndroidJavaObject>("newInstance", new AndroidJavaClass("java.lang.Float"), values.Length);
+        for (int i = 0; i < values.Length; ++i)
         {
-            _pluginClass.Call("GetQuat", coordinats);
-            Debug.Log(coordinats[0].ToString() + "  " + coordinats[1].ToString()+"  " + coordinats[2].ToString() + "  " + coordinats[3].ToString());
-            Vector3 mouseMovement = (100*new Vector3(coordinats[1], coordinats[2], coordinats[3]) - (new Vector3(Screen.width, Screen.height, 0) / 2.0f)) * 1;
-            transform.Rotate(new Vector3(-mouseMovement.y, mouseMovement.x, -mouseMovement.x) * 0.005f);
-            transform.Translate(new Vector3(mouseMovement.x, mouseMovement.y, 0) * 0.005f);
+            arrayClass.CallStatic("set", arrayObject, i, new AndroidJavaObject("java.lang.Float", values[i]));
         }
-        transform.Translate(Vector3.forward * Time.deltaTime * currrentSpeed);
+        return arrayObject;
     }
-
-
 }
 
