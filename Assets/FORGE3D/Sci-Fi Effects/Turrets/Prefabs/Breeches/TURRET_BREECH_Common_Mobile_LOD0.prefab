@@ -16,9 +16,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000010206264954}
+  - 4: {fileID: 4000010206264954}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_MORTAR'
   m_TagString: Untagged
@@ -31,9 +31,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000011956156122}
+  - 4: {fileID: 4000011956156122}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_ELECTRIC'
   m_TagString: Untagged
@@ -46,9 +46,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000011701160534}
+  - 4: {fileID: 4000011701160534}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_GATLING'
   m_TagString: Untagged
@@ -61,9 +61,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000011645688296}
+  - 4: {fileID: 4000011645688296}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_REPEATER'
   m_TagString: Untagged
@@ -76,9 +76,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000013834195776}
+  - 4: {fileID: 4000013834195776}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_FLACK'
   m_TagString: Untagged
@@ -91,9 +91,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000010461495876}
+  - 4: {fileID: 4000010461495876}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_FLAMER'
   m_TagString: Untagged
@@ -106,9 +106,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000012524252454}
+  - 4: {fileID: 4000012524252454}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_GAUSS'
   m_TagString: Untagged
@@ -121,9 +121,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000012405687400}
+  - 4: {fileID: 4000012405687400}
   m_Layer: 0
   m_Name: '*SOCKET_BARREL_LASER'
   m_TagString: Untagged
@@ -136,11 +136,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000012749861342}
-  - component: {fileID: 33000011337322828}
-  - component: {fileID: 23000012117737122}
+  - 4: {fileID: 4000012749861342}
+  - 33: {fileID: 33000011337322828}
+  - 23: {fileID: 23000012117737122}
   m_Layer: 0
   m_Name: TURRET_BREECH_Common_Mobile_LOD0
   m_TagString: Untagged
@@ -287,9 +287,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 73cef6bee8a085642bdfafe37a11cc21, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -297,13 +295,12 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33000011337322828
 MeshFilter:

@@ -5,19 +5,22 @@ using UnityEngine;
 public class FailGame : MonoBehaviour {
 
 
-    private float scale = 0.005f;
+    private float scaleSpeed = 0.005f;
+
+    [SerializeField]
+    private float scale = 2f;
 
     void Start()
     {
         gameObject.transform.localScale = Vector3.zero;
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
-        if(gameObject.transform.localScale.x<2f)
+        if(gameObject.transform.localScale.x<scale)
         {
-            gameObject.transform.localScale += Vector3.one * scale;
+            gameObject.transform.localScale += Vector3.one * scaleSpeed * scale;
         }
 
         

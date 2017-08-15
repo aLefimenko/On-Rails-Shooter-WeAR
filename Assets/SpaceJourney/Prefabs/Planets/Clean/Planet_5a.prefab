@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114942398280406936}
   - component: {fileID: 135555215330750476}
   - component: {fileID: 114007973936034806}
+  - component: {fileID: 114592465061731788}
   m_Layer: 0
   m_Name: Planet_5a
   m_TagString: Untagged
@@ -106,7 +107,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f0d7cdc421c0bae449a6649acbb6e68f, type: 2}
+  - {fileID: 2100000, guid: de4ae788eb3a91440b638ebd80bba686, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,7 +139,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f0d7cdc421c0bae449a6649acbb6e68f, type: 2}
+  - {fileID: 2100000, guid: de4ae788eb3a91440b638ebd80bba686, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -210,6 +211,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isX: 0
+--- !u!114 &114592465061731788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b4d4a4200218d428924e690ae4b4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114942398280406936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df0ae4fc609e97478e7d3e3c239b220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scale: 2
 --- !u!135 &135555215330750476
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -231,5 +244,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
